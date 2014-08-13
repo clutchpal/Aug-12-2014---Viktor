@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+ android:layout_width="fill_parent" 
+ android:layout_height="fill_parent"
+ android:padding="5dp">
+
+        <Button android:id="@+id/btnRedeem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="Redeem"
+            />
+
+        <Button android:id="@+id/btnFollow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="Follow"
+            />
+
+        <ImageView
+            android:id="@+id/imgCompanyLogo"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/btnRedeem"
+            android:src="@drawable/ic_launcher"
+            android:scaleType="fitXY"
+            />
+
+      <TextView 
+            android:id="@+id/companyName"
+            android:text="Company X"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/imgCompanyLogo"
+            android:layout_below="@+id/btnRedeem"
+            android:layout_alignTop="@+id/imgCompanyLogo"
+            android:textSize="20sp"
+            />  
+
+        <TextView
+            android:id="@+id/companyInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/imgCompanyLogo"
+            android:layout_alignRight="@+id/dealDescription"
+            android:layout_below="@+id/companyName"
+            android:layout_toRightOf="@+id/imgCompanyLogo"
+            android:text="Company Info" />
+
+    <TextView 
+        android:id="@+id/dealDescription"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:lines="5"
+        android:gravity="top"
+        android:text="Description"
+        android:layout_below="@+id/imgCompanyLogo"
+        />
+
+    <ImageView
+        android:id="@+id/imgDealBannerTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/imgCompanyLogo"
+        android:layout_toLeftOf="@+id/btnFollow"
+        android:layout_toRightOf="@+id/btnRedeem"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_launcher" />
+
+        <ImageView
+            android:id="@+id/imgDealBannerBottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/dealDescription"
+            android:layout_alignParentBottom="true"
+            android:layout_alignRight="@+id/dealDescription"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_launcher" />
+        
+        <TextView
+            android:id="@+id/dealBronzeDiscount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dealDescription"
+            android:gravity="top"
+            android:lines="1"
+            android:text="Bronze Discount 10%" />
+        
+        <TextView
+            android:id="@+id/dealSilverDiscount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dealBronzeDiscount"
+            android:gravity="top"
+            android:lines="1"
+            android:text="Silver Discount 25%" />
+        
+        <TextView
+            android:id="@+id/dealGoldDiscount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dealSilverDiscount"
+            android:gravity="top"
+            android:lines="1"
+            android:text="Gold Discount 50%" />
+
+        <Button
+            android:id="@+id/btnBronzeDiscount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dealDescription"
+            android:layout_toRightOf="@+id/dealBronzeDiscount"
+            android:text="Redeem" />
+
+</RelativeLayout>
