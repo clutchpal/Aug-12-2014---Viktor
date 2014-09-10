@@ -13,12 +13,12 @@ import android.app.Activity;
 import android.widget.ImageView;
 
 
-public class HubMenuAdapter2 extends BaseAdapter {
+public class DealAdapterRightPane extends BaseAdapter {
 
 	 Context context;
-	 List<HubMenuRowItem> rowItems;
+	 List<DealMenuRowItem> rowItems;
 
-	 HubMenuAdapter2 (Context context, List<HubMenuRowItem> rowItems) {
+	 DealAdapterRightPane (Context context, List<DealMenuRowItem> rowItems) {
 	  this.context = context;
 	  this.rowItems = rowItems;
 	 }
@@ -40,10 +40,10 @@ public class HubMenuAdapter2 extends BaseAdapter {
 
 	 /* private view holder class */
 	 private class ViewHolder {
-	  ImageView profile_pic;
-	  TextView member_name;
-	  TextView status;
-	  TextView contactType;
+	  ImageView deal_pic;
+	  TextView deal_name;
+	  TextView deal_cost;
+	  TextView deal_description;
 	 }
 
 	 @Override
@@ -57,20 +57,20 @@ public class HubMenuAdapter2 extends BaseAdapter {
 	   convertView = mInflater.inflate(R.layout.hubmenu_list_item, null);
 	   holder = new ViewHolder();
 
-	   holder.member_name = (TextView) convertView
-	     .findViewById(R.id.member_name);
-	   holder.profile_pic = (ImageView) convertView
-	     .findViewById(R.id.profile_pic);
-	   holder.status = (TextView) convertView.findViewById(R.id.status);
-	   holder.contactType = (TextView) convertView
-	     .findViewById(R.id.contact_type);
+	   holder.deal_name = (TextView) convertView
+	     .findViewById(R.id.Deal_name);
+	   holder.deal_pic = (ImageView) convertView
+	     .findViewById(R.id.Deal_pic);
+	   holder.deal_cost = (TextView) convertView.findViewById(R.id.Deal_cost);
+	   holder.deal_description = (TextView) convertView
+	     .findViewById(R.id.Deal_description);
 
-	   HubMenuRowItem row_pos = rowItems.get(position);
+	   DealMenuRowItem row_pos = rowItems.get(position);
 
-	   holder.profile_pic.setImageResource(row_pos.getProfile_pic_id());
-	   holder.member_name.setText(row_pos.getMember_name());
-	   holder.status.setText(row_pos.getStatus());
-	   holder.contactType.setText(row_pos.getContactType());
+	   holder.deal_pic.setImageResource(row_pos.getDeal_pic_id());
+	   holder.deal_name.setText(row_pos.getDeal_name());
+	   holder.deal_cost.setText(row_pos.getDeal_cost());
+	   holder.deal_description.setText(row_pos.getDeal_description());
 
 	   convertView.setTag(holder);
 	  } else {

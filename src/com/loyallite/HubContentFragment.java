@@ -1,7 +1,5 @@
 package com.loyallite;
 
-
-
 import android.support.v4.app.Fragment;
 import android.app.Activity;
 import android.os.Bundle;
@@ -20,7 +18,7 @@ public class HubContentFragment extends Fragment {
             Bundle savedInstanceState) {
         // TODO Create Selected Menu Item UI in Right Pane
     
-        View v = inflater.inflate(R.layout.hubmenucontent_layout, container,
+        View v = inflater.inflate(R.layout.hubmenucontent_layout, null,
                 false);
         setHasOptionsMenu(true);
         return v;

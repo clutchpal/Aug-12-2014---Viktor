@@ -8,9 +8,9 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 
 
-import com.loyallite.HubMenuFragment.HubMenuListener;
+import com.loyallite.HubMenuFragmentLeftPane.HubMenuListener;
 
-public class HubActivity2 extends ActionBarActivity implements HubMenuListener {
+public class HubActivityoldversion extends ActionBarActivity implements HubMenuListener {
     
     private SlidingPaneLayout mPane;
 

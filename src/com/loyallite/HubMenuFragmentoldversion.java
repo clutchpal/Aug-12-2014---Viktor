@@ -13,14 +13,14 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
 
-public class HubMenuFragment2 extends Activity implements OnItemClickListener {
+public class HubMenuFragmentoldversion extends Activity implements OnItemClickListener {
 
  String[] member_names;
  TypedArray profile_pics;
  String[] statues;
  String[] contactType;
 
- List<HubMenuRowItem> rowItems;
+ List<DealMenuRowItem> rowItems;
  ListView mylistview;
 
  @Override
@@ -28,25 +28,25 @@ public class HubMenuFragment2 extends Activity implements OnItemClickListener {
   super.onCreate(savedInstanceState);
   setContentView(R.layout.hubmenu_layout);
 
-  rowItems = new ArrayList<HubMenuRowItem>();
+  rowItems = new ArrayList<DealMenuRowItem>();
 
-  member_names = getResources().getStringArray(R.array.Member_names);
+  member_names = getResources().getStringArray(R.array.Deal_name);
 
-  profile_pics = getResources().obtainTypedArray(R.array.profile_pics);
+  profile_pics = getResources().obtainTypedArray(R.array.Deal_pic);
 
-  statues = getResources().getStringArray(R.array.statues);
+  statues = getResources().getStringArray(R.array.Deal_cost);
 
-  contactType = getResources().getStringArray(R.array.contactType);
+  contactType = getResources().getStringArray(R.array.Deal_description);
 
   for (int i = 0; i < member_names.length; i++) {
-   HubMenuRowItem item = new HubMenuRowItem(member_names[i],
+   DealMenuRowItem item = new DealMenuRowItem(member_names[i],
      profile_pics.getResourceId(i, -1), statues[i],
      contactType[i]);
    rowItems.add(item);
   }
 
   mylistview = (ListView) findViewById(R.id.userhubmenu);
-  HubMenuAdapter2 adapter = new HubMenuAdapter2(this, rowItems);
+  DealAdapterRightPane adapter = new DealAdapterRightPane(this, rowItems);
   mylistview.setAdapter(adapter);
   profile_pics.recycle();
   mylistview.setOnItemClickListener(this);
@@ -57,7 +57,7 @@ public class HubMenuFragment2 extends Activity implements OnItemClickListener {
  public void onItemClick(AdapterView<?> parent, View view, int position,
    long id) {
 
-  String member_name = rowItems.get(position).getMember_name();
+  String member_name = rowItems.get(position).getDeal_name();
   Toast.makeText(getApplicationContext(), "" + member_name,
     Toast.LENGTH_SHORT).show();
  }

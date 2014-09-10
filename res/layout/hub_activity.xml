@@ -7,16 +7,14 @@
     
 
     <!-- Left side pane. (Master) -->
-    <fragment android:id="@+id/leftpane"
-              android:name="com.loyallite.HubMenuFragment"
+    <FrameLayout android:id="@+id/leftpane"
               android:layout_width="190dp"
                         android:layout_height="match_parent"
               android:layout_gravity="left"  />
     
     
     <!-- Right side page. (Slave)  -->
-    <fragment android:id="@+id/rightpane"
-              android:name="com.loyallite.HubContentFragment"
+    <FrameLayout android:id="@+id/rightpane"
               android:layout_width="350dp"
                         android:layout_height="match_parent"
               android:layout_gravity="right"

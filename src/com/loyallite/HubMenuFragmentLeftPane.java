@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-public class HubMenuFragment extends Fragment {
+public class HubMenuFragmentLeftPane extends Fragment {
 
     private HubMenuListener mMenuListener;
     
@@ -33,12 +33,12 @@ public class HubMenuFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
 
-        View v = inflater.inflate(R.layout.hubmenu_layout, container, true);
+        View v = inflater.inflate(R.layout.hubmenu_layout, null);
         ListView slidingPaneListView = (ListView) v
                 .findViewById(R.id.userhubmenu);
         
         // Setting the items for the list view
-        HubMenuAdapter menuAdapter = new HubMenuAdapter(
+        HubMenuAdapterLeftPane menuAdapter = new HubMenuAdapterLeftPane(
                 getActivity(), getResources().getStringArray(
                         R.array.userhubmenulist));
         slidingPaneListView.setAdapter(menuAdapter);

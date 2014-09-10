@@ -4,10 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Toast;
@@ -25,15 +28,17 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.app.ListFragment;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 
-public class HubMenuFragment4 extends Fragment {
+public class DealMenuFragmentRightPane extends Fragment {
 
- String[] member_names;
- TypedArray profile_pics;
- String[] statues;
- String[] contactType;
+ String[] deal_name;
+ TypedArray deal_pic;
+ String[] deal_cost;
+ String[] deal_description;
 
- List<HubMenuRowItem> rowItems;
+ List<DealMenuRowItem> rowItems;
 
  
  private HubMenuListener4 mMenuListener4;
@@ -58,18 +63,18 @@ public class HubMenuFragment4 extends Fragment {
  
   
 
-  member_names = getResources().getStringArray(R.array.Member_names);
+  deal_name = getResources().getStringArray(R.array.Deal_name);
 
-  profile_pics = getResources().obtainTypedArray(R.array.profile_pics);
+  deal_pic = getResources().obtainTypedArray(R.array.Deal_pic);
 
-  statues = getResources().getStringArray(R.array.statues);
+  deal_cost = getResources().getStringArray(R.array.Deal_cost);
 
-  contactType = getResources().getStringArray(R.array.contactType);
+  deal_description = getResources().getStringArray(R.array.Deal_description);
 
-  for (int i = 0; i < member_names.length; i++) {
-   HubMenuRowItem item = new HubMenuRowItem(member_names[i],
-     profile_pics.getResourceId(i, -1), statues[i],
-     contactType[i]);
+  for (int i = 0; i < deal_name.length; i++) {
+   DealMenuRowItem item = new DealMenuRowItem(deal_name[i],
+     deal_pic.getResourceId(i, -1), deal_cost[i],
+     deal_description[i]);
    rowItems.add(item);
   }
  }
@@ -78,14 +83,14 @@ public class HubMenuFragment4 extends Fragment {
  @Override
  public View onCreateView(LayoutInflater inflater, ViewGroup container,
          Bundle savedInstanceState) {
-	 View v = inflater.inflate(R.layout.hubmenu_layout, container, false);
+	 View v = inflater.inflate(R.layout.hubmenu_layout, null);
 	 ListView slidingPaneListView = (ListView) v
              .findViewById(R.id.userhubmenu);
 	 
-	 rowItems = new ArrayList<HubMenuRowItem>();
+	 rowItems = new ArrayList<DealMenuRowItem>();
 	 
 	 // Setting the items for the list view
-    final HubMenuAdapter2 menuAdapter2 = new HubMenuAdapter2(
+    final DealAdapterRightPane menuAdapter2 = new DealAdapterRightPane(
              getActivity(), rowItems);
      slidingPaneListView.setAdapter(menuAdapter2);
      
@@ -95,9 +100,17 @@ public class HubMenuFragment4 extends Fragment {
                  @Override
                  public void onItemClick(AdapterView<?> parent, View view,
                          int position, long id) {
-                     // Passing item clicked event onto whoever is listening
-                     mMenuListener4.onMenuItemClick(position);
-                     menuAdapter2.getItem(position);
+                		Log.e("mytag", "position: "+position);
+                	 	if(position == 1)
+                	 	{
+                	 		DealItemFragmentRightPane newFragment2 = new DealItemFragmentRightPane();
+                	 		Bundle args = new Bundle();
+                	 		FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                	 		transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+                	 		transaction.replace(R.id.rightpane, newFragment2, "dealitem");
+                	 		transaction.addToBackStack("dealitem");
+                	 		transaction.commit();
+                	 	}
                  }
              });
      setHasOptionsMenu(true);
@@ -122,4 +135,7 @@ public class HubMenuFragment4 extends Fragment {
      public void onMenuItemClick(int position);
      
  }
+ 
+ 
+
 }

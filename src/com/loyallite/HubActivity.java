@@ -1,23 +1,17 @@
 package com.loyallite;
 
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Toast;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.SlidingPaneLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentTransaction;
-import android.app.ListFragment;
+import android.util.Log;
+import android.view.View;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
+import com.loyallite.DealMenuFragmentRightPane.HubMenuListener4;
+import com.loyallite.HubMenuFragmentLeftPane.HubMenuListener;
 
-import com.loyallite.DealMenuFragment.DealMenuListener;
-import com.loyallite.HubMenuFragment.HubMenuListener;
-import com.loyallite.HubMenuFragment4.HubMenuListener4;
-
-public class HubActivity extends ActionBarActivity implements HubMenuListener, DealMenuListener, HubMenuListener4 {
+public class HubActivity extends ActionBarActivity implements HubMenuListener, HubMenuListener4 {
     
     private SlidingPaneLayout mPane;
 
@@ -25,14 +19,20 @@ public class HubActivity extends ActionBarActivity implements HubMenuListener, D
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.hub_activity);
+        
+        HubMenuFragmentLeftPane menuFragment = new HubMenuFragmentLeftPane();
+        HubContentFragment content = new HubContentFragment();
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.add(R.id.leftpane, menuFragment);
+        ft.add(R.id.rightpane, content);
+        ft.commit();
+        
         mPane = (SlidingPaneLayout) findViewById(R.id.sp);
         mPane.setPanelSlideListener(new PaneListener());
 
         if (!mPane.isSlideable()) {
-            getSupportFragmentManager().findFragmentById(R.id.leftpane)
-                    .setHasOptionsMenu(false);
-            getSupportFragmentManager().findFragmentById(R.id.rightpane)
-                    .setHasOptionsMenu(true);
+            menuFragment.setHasOptionsMenu(false);
+            content.setHasOptionsMenu(true);
         }
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
@@ -63,16 +63,15 @@ public class HubActivity extends ActionBarActivity implements HubMenuListener, D
 
     @Override
     public void onMenuItemClick(int position) {
-    	
+    
+    	Log.e("mytag", "position hub menu: "+position);
     	if(position == 2)
     	{
-    		HubMenuFragment4 newFragment = new HubMenuFragment4();
+    		DealMenuFragmentRightPane newFragment = new DealMenuFragmentRightPane();
     		Bundle args = new Bundle();
     		FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-    		transaction.replace(R.id.rightpane, newFragment);
-    		transaction.addToBackStack(null);
-    		
-    		transaction.commit();
+    		transaction.replace(R.id.rightpane, newFragment, "deal_menu");
+    		transaction.addToBackStack("rightpane").commit();
     	}
     	
         

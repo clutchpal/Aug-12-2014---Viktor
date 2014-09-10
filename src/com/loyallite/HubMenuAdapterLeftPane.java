@@ -10,12 +10,12 @@ import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class HubMenuAdapter extends ArrayAdapter<String> {
+public class HubMenuAdapterLeftPane extends ArrayAdapter<String> {
 
     private String[] mMenuItems;
     private Context mContext;
 
-    public HubMenuAdapter(Context context, String[] menuItemList) {
+    public HubMenuAdapterLeftPane(Context context, String[] menuItemList) {
         super(context, R.layout.hubmenuitem_layout, menuItemList);
         mContext = context;
         mMenuItems = menuItemList;

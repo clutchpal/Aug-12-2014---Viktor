@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Dealmigo</string>
+    <string name="app_name">Loyallite</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
     
@@ -10,69 +10,22 @@
         <item >Companies</item>
         <item >Deals</item>
         <item >Settings</item>
-    </string-array>
-
-    <string-array name="dealmenulist">
-        <item >Deal 1</item>
-        <item >Deal 2</item>
-        <item >Deal 3</item>
-        <item >Deal 4</item>
-        <item >Deal 5</item>
-    </string-array>
+    </string-array>    
     
-    <string-array name="dealitemlist">
-        <item >This is Deal item 1 title</item>
-    </string-array>
-    
-    
-    
-    
-    <string-array name="dealitemnames">
+        <!-- Names -->
+    <string-array name="Deal_name">
         <item>Deal 1</item>
         <item>Deal 2</item>
         <item>Deal 3</item>
         <item>Deal 4</item>
         <item>Deal 5</item>
-    </string-array>
-    
-    <array name="dealitempictures">
-        <item>@drawable/ic_launcher</item>
-        <item>@drawable/ic_launcher</item>
-        <item>@drawable/ic_launcher</item>
-        <item>@drawable/ic_launcher</item>
-        <item>@drawable/ic_launcher</item>
-    </array>
-    
-    <string-array name="dealitemdescriptions">
-        <item >This is Deal item 1 title</item>
-        <item >This is Deal item 2 title</item>
-        <item >This is Deal item 3 title</item>
-        <item >This is Deal item 4 title</item>
-        <item >This is Deal item 5 title</item>
-    </string-array>
-    
-    <string-array name="dealseemore">
-   		<item >See more</item>
-   		<item >See more</item>
-   		<item >See more</item>
-   		<item >See more</item>
-   		<item >See more</item>
-   </string-array>
-    
-    
-    
-        <!-- Names -->
-    <string-array name="Member_names">
-        <item>Pavan D</item>
-        <item>DayaSagar</item>
-        <item>Pavan B</item>
-        <item>Maddy</item>
-        <item>Pavan H</item>
-        <item>Nikhil</item>
+        <item>Deal 6</item>
+        <item>Deal 7</item>
     </string-array>
 
     <!-- Pictures -->
-    <array name="profile_pics">
+    <array name="Deal_pic">
+        <item>@drawable/ic_launcher</item>
         <item>@drawable/ic_launcher</item>
         <item>@drawable/ic_launcher</item>
         <item>@drawable/ic_launcher</item>
@@ -82,22 +35,26 @@
     </array>
 
     <!-- Status -->
-    <string-array name="statues">
-        <item>Blogging</item>
-        <item>Available</item>
-        <item>Busy</item>
-        <item>In a meeting</item>
-        <item>At work</item>
-        <item>At gym</item>
+    <string-array name="Deal_description">
+        <item>This is Deal item 1 title</item>
+        <item>This is Deal item 2 title</item>
+        <item>This is Deal item 3 title</item>
+        <item>This is Deal item 4 title</item>
+        <item>This is Deal item 5 title</item>
+        <item>This is Deal item 6 title</item>
+        <item>This is Deal item 7 title</item>
     </string-array>
 
     <!-- contact type -->
-    <string-array name="contactType">
-        <item>Mobile</item>
-        <item>Work</item>
-        <item>Home</item>
-        <item>Work</item>
-        <item>Mobile</item>
-        <item>Mobile</item>
+    <string-array name="Deal_cost">
+        <item>$1</item>
+        <item>$2</item>
+        <item>$3</item>
+        <item>$4</item>
+        <item>$5</item>
+        <item>$6</item>
+        <item>$7</item>
     </string-array>
+    
+    
 </resources>
